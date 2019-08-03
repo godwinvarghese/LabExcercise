@@ -40,8 +40,15 @@
 };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  googleSignin=()=>
-{
+ 
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+
     var provider = new firebase.auth.GoogleAuthProvider();
     provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     firebase.auth().languageCode = 'pt';
@@ -91,13 +98,7 @@ firebase.auth().signOut().then(function() {
   // An error happened.
 });
 }
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
+
 </script>
 <a href="#" onclick="signOut();">Sign out</a>
 <script>
