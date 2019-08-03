@@ -8,7 +8,7 @@
         </title>
     </head>
     <body>
-         <div class="g-signin2" data-onsuccess="onSignIn1"></div>
+         <div class="g-signin2" data-onsuccess="onSignIn"></div>
       
        <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/6.3.3/firebase-app.js"></script>
@@ -39,18 +39,8 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
  
-function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 
-
-   
-
-};
-    function onSignIn1(googleUser)
+    function onSignIn(googleUser)
     {
     firebase.auth().signInWithRedirect(provider);
 
