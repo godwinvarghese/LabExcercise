@@ -41,16 +41,19 @@
  
 
   
-    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+   
+      function onSignIn(googleUser)
+    {
+    
+    
+    firebase.initializeApp(firebaseConfig);
+         var provider = new firebase.auth.GoogleAuthProvider();
+          provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
     firebase.auth().useDeviceLanguage();
 // To apply the default browser preference instead of explicitly setting it.
 // firebase.auth().useDeviceLanguage();
 provider.setCustomParameters({
   'login_hint': 'user@example.com'
-      function onSignIn(googleUser)
-    {
-        firebase.initializeApp(firebaseConfig);
-         var provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().signInWithPopup(provider).then(function(result) {
   // This gives you a Google Access Token. You can use it to access the Google API.
   var token = result.credential.accessToken;
