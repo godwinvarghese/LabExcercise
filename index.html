@@ -15,8 +15,9 @@
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
 }
     </script>
+      <a href="#" onclick="signOut();">Sign out</a>
     <script>
-    <a href="#" onclick="signOut();">Sign out</a>
+  
 
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
