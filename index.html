@@ -35,6 +35,7 @@
   messagingSenderId: "930918782565",
   appId: "1:930918782565:web:013bf830cc2c25fb"
 };
+    
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
  
@@ -48,15 +49,11 @@ function onSignIn(googleUser) {
 
    
 
-}
-firebase.auth().signOut().then(function() {
-  // Sign-out successful.
-}).catch(function(error) {
-  // An error happened.
-});
-}
+};
 
-</script>
+
+
+
 <a href="#" onclick="signOut();">Sign out</a>
 <script>
   function signOut() {
