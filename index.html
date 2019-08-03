@@ -1,15 +1,14 @@
 <!DOCTYPE html>
     <head>
         <meta name="google-signin-scope" content="profile email">
-        <meta name="google-signin-client_id" content="1063399960555-pf0pjkomdqnt8cb5ka6l8ceih6l1mfn9.apps.googleusercontent.com">
+        <meta name="google-signin-client_id" content=" 930918782565-s60k94t13khhh8bk6leaeuurj8k75plf.apps.googleusercontent.com">
             <script src="https://apis.google.com/js/platform.js" async defer></script>
         <title>
             connect
         </title>
     </head>
     <body>
-         <div class="g-signin2" data-onsuccess="onSignIn"></div>
-      
+        <button onclick="googleSignin()">Google Signin</button>
        <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="/__/firebase/6.3.3/firebase-app.js"></script>
 
@@ -35,28 +34,73 @@
   messagingSenderId: "930918782565",
   appId: "1:930918782565:web:013bf830cc2c25fb"
 };
-    
-  firebase.initializeApp(firebaseConfig); Initialize Firebase
-    </script>
- 
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
 
-  
-   <script>
-       
-      function onSignIn(googleUser)
-    {
-        var profile = googleUser.getBasicProfile();
+
+
+
+  googleSignin=()=>
+{
+    var provider = new firebase.auth.GoogleAuthProvider();
+    provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+    firebase.auth().languageCode = 'pt';
+// To apply the default browser preference instead of explicitly setting it.
+// firebase.auth().useDeviceLanguage();
+provider.setCustomParameters({
+  'login_hint': 'user@example.com'
+});
+firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+firebase.auth().signInWithRedirect(provider);
+
+firebase.auth().getRedirectResult().then(function(result) {
+  if (result.credential) {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    var token = result.credential.accessToken;
+    // ...
+  }
+  // The signed-in user info.
+  var user = result.user;
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+});
+firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
+});
+}
+
+function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
   console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-    
-    
-   
-};
-
-      </script>
-
+}
+</script>
 <a href="#" onclick="signOut();">Sign out</a>
 <script>
   function signOut() {
@@ -66,6 +110,6 @@
     });
   }
 </script>
-
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
     </body>
 </html>
