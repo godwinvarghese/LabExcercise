@@ -25,7 +25,7 @@
      https://firebase.google.com/docs/web/setup#config-web-app -->
      <script src="https://apis.google.com/js/platform.js" async defer></script>
     
-<script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js">
+<script>
  const firebaseConfig = {
   apiKey: "AIzaSyB5d-0lrVImqRYzAXhFjCF3nWWpW_N4HKw",
   authDomain: "fireapp-88ef1.firebaseapp.com",
@@ -41,7 +41,8 @@
  
 
   
-   
+   <script>
+       
       function onSignIn(googleUser)
     {
         var profile = googleUser.getBasicProfile();
@@ -54,7 +55,7 @@
    
 };
 
-      
+      </script>
 
 <a href="#" onclick="signOut();">Sign out</a>
 <script>
