@@ -10,7 +10,7 @@
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
             <button onclick="onSignIn(googleUser)">Click me</button>
             <script>
-               function onSignIn(googleUser) {
+               function onSignIn() {
   var profile = googleUser.getBasicProfile();
   console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
   console.log('Name: ' + profile.getName());
