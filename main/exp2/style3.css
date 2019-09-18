@@ -1,0 +1,103 @@
+header{
+    text-align: center;
+    font-family: serif;
+    font-size: 30px;
+    font-style: normal;
+    background-color: cornflowerblue;
+    color: white;
+    text-shadow: 3px 3px black;
+    line-height: 90px;
+
+
+}
+*{margin: 0;}
+nav{
+
+   
+width: 100%;
+}
+ul{
+    list-style-type:none;
+    background-color: orange;
+    color: black;
+font-family: serif;
+padding-left: 80px;
+padding-right: 80px;
+padding-bottom: 25px;
+padding-top: 2px;
+   
+}
+li a{
+    
+    float:left;
+    display: inline-block;
+    text-emphasis: center;
+    padding: 2px 120px;
+
+}
+li a:hover{
+    background-color: greenyellow;
+    color: blue;
+
+}
+#banner
+{
+background-image: url('karunya11.jpg');
+background-size: cover;
+height: 100%;
+font-family: serif;
+color: red;
+width: 100%;
+background-position: center;
+background-repeat: no-repeat;
+}
+#text
+{
+
+}
+.thumbnail
+{
+    height: 200px;
+    width: 33px;
+    background-image: url('karunya2.jpg');
+}
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 25%;
+    height: 200px;
+    background-size: cover;
+    display: inline-block;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+  }
+
+  .card1 {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 25%;
+    height: 200px;
+    background-size: cover;
+    display: inline-block;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+  .container {
+    padding: 2px 16px;
+  }
+  
