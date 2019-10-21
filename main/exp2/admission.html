@@ -1,155 +1,200 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
 <html>
     <head>
-        <title>
-            exp2
-        </title>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
-            .panel{
-              margin:auto;
-              width: 100%;
-              color: aliceblue;
-                text-align: center;
-                background-color:#007bff;
-            }
-            body{
-              
-                background-color: rgba(223, 240, 216,0.5);
-            }
-            .container
-            {
-
-                margin: auto;
-                width: 80%;
-                background-color: white;
-            }
-            .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+*{
+    margin: 0;
 }
-.kevin
-{
-    margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+h1{
+    text-align: center;
+    font-family: serif;
+    font-size: 30px;
+    font-style: normal;
+    color: white;
+    background-color: cornflowerblue;
+    line-height: 90px;
+    text-shadow:2px 2px black;
 }
-.btn.btn-primary {
-    color: #fff;
-    background-color: #007bff;
+ul{
+    list-style-type: none;
+    background-color: black;
+    padding: 10px;
+    overflow: hidden;
 }
-
-.btn.btn-primary:hover {
-    color: #fff;
-    background-color: #00478e;
+li{
+    float: left ;
 }
-
-
+li a{
+    color: white;
+    padding: 30px 200px;
+    text-align: center;
+    text-decoration: none;
+    
+}
+li a:hover{
+    color: white;
+    background-color: green;
+}
+#registartion{
+    background-image: url('image1.jpg');
+    align-self: center;
+    max-width: 100%;
+    height: 500px;
+    display: block;
+    padding: 1px;
+    margin: 1px;
+}
         </style>
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
-    <body style="margin-left: 10%;margin-right: 10%;margin-top: 2%;">
-          
-            <div> 
-                 <div id="image" style="float:left;">
-                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;   &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <img src="KarunyaLogoNEW.jpg"  height="100px" width="500px"/>
-               &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                
-            </div>
-        
-                  
-                 
-               </div>
-                <div>
-                    <hr>
-                    <nav>
+    <body>
+                <h1>Karunya Institute Of Technology And Sciences</h1>
+        <ul> 
+            <li>  <a href="index.html"> Home </a>   </li>  
+            <li>  <a href="registration.html"> Admission </a> </li> 
+            <li>  <a href="academics.html"> Academics </a> </li> 
+            <li>  <a href="calender.html"> Calender </a> </li>
+        </ul>
+                <div id="registartion"></div>
+        <form action="success.html">
+           
+            <fieldset> 
+                <legend style="font-size:30px">Registration Form</legend>
+                <center>
+                    <table>
+               <tr> 
+                   <td> Name <sup style="color: red">*</sup>: </td>
+                    <td> <input type="text" size="30" autofocus=""> </td> 
+               </tr>
+               
+               <tr> 
+                    <td> Email <sup style="color: red">*</sup>: </td>
+                    <td> <input type="email" size="30" placeholder="Enter email"> </td> 
+               </tr>
+               
+               <tr> 
+                    <td> Mobile <sup style="color: red">*</sup>: </td>
+                    <td>
+                        <select>
+                            <optgroup label="Country Code">
+                                    <option>+91</option>
+                                    <option>+92</option>
+                                </select>
+                <input type="text" size="11"> </td> 
+               </tr>
+               <tr>
+                   <td>Address <sup style="color: red">*</sup>:</td>
+                   <td>
+                       <textarea rows="5"></textarea>
+                   </td>
+               </tr>
+               <tr> 
+                   <td> Applying For<sup style="color: red">*</sup>: </td>
+                    <td>
+                        <input type="radio" name="opt1" checked>UG 
+                     <input type="radio" name="opt1">PG 
+                     <input type="radio" name="opt1">Lateral 
+                     <input type="radio" name="opt1">Diploma 
+                     </td>
+               </tr>
+               
+               <tr> 
+                    <td> 10th SSLC Mark (%) <sup style="color: red">*</sup>: </td>
+                    <td> <input type="text" size="10"> </td> 
+               </tr>
+               
+               <tr> 
+                    <td> State </td>
+                    <td> 
                         
-                        <a href="index.html">Home Page</a>&emsp;&emsp;&emsp;&emsp;
-                        <a href="Registration.html">Registration</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                        <a href="AcademicCalender.html">Calender</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                        <a href="admission.html">Admission</a>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-                         <input type = "text"
-                         id = "myText"
-                         value = "Search" />
-                    </nav>
-                    
-                    <hr>
-                  
-                </div>
-        
-        <div class="container">
-              
-                <h1 class="panel" >  Addmission 2019-20</h1> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-            <form class="kevin">
-        
-              
-                <table>
-                    <tr>
-            
-                    <td> Name <sup style ="color:red;">*</sup>:</td>  
-                    <td> <input type="text" size ="10" maxlength="100" autofocus placeholder ="enter name"></td>
-            
-                </tr>
-              
-                    
-                         
+                        <select>
+                            <option>Kerala</option>
+                            <option>TamilNadui</option>
+                            <option>Karnataka</option>
+                            <option>Andra Paradesh</option>
+                            <option>Maharashtra</option>
+                        </select>
+                    </td> 
+               </tr>
+               
+                 <tr>
+                   <td>
+                       Upload Profile Pic:
+                   </td>
+                   <td>
+                       <input type="file">
+                   </td>
+               </tr>
+               
                 <tr>
-                   <td> Email <sup style ="color:red;">*</sup>:</td>   
-                   <td><input type="email" size="10" maxlength="100" placeholder ="enter Email" ></td>
-             </tr>
-             
-             
-             <tr>
-                   <td>  Mob no <sup style ="color:red;">*</sup>:</td>   
-                  
                    <td>
-                      <select>
-                         <optgroup label = "country code">
-                           <option>91</option>
-                          <option>10</option>
-                         <option>21</option>
-                      </select>
-                  
-              
-                   <input type ="text" size="10" placeholder ="enter Mob no"></td>
-             </tr>
-             <tr>
-                 <td>  apply for <sup style ="color:red;">*</sup>:</td>   
-                 <td><input name="car" type ="radio">UG
-                 <input name="car" type ="radio">PG
-                 <input name="car" type ="radio">MBA</td>
-             </tr>
-             <tr>
+                       Interested programme Choice-1 <sup style="color: red">*</sup> :
 
-                <td>Last Institution Studied<sup style="color: red;">*</sup>:</td>
-               <td> 
-                    <input name="Institution" type ="radio">within India
-                    <input name="Institution" type ="radio">Abroad
-               </td> 
-             </tr>
-             <tr>
+                   </td>
+                   <td>
+                       <select>
+                           <option>B.Tech Civil</option>
+                           <option>B.Tech CSE</option>
+                           <option>B.Tech Mechanical</option>
+                           <option>B.Tech Aerospace</option>
+                       </select>
+                   </td>
+               </tr>
+               
+               <tr>
+                   <td>
+                       Interested Programme Choice-2 <sup style="color: red">*</sup>
+                   </td>
+                   <td>
+                       <select>
+                           <option>B.Tech CSE</option>
+                            <option>B.Tech Civil</option>
+                             <option>B.Tech Mechanical</option>
+                              <option>B.Tech Aerospace</option>
+                       </select>
+                   </td>
+               </tr>
+               
+               <tr>
+                   <td>
+                       Contact Preferences <sup style="color: red">*</sup> :
+                   </td>
+                   <td>
+                       <select>
+                           <option>Any Time</option>
+                           <option>8am - 10am</option>
+                           <option>10am - 1pm</option>
+                           <option>1pm - 4pm</option>
+                           <option>4pm - 7pm</option>
+                       </select>
+                   </td>
+                     
                    
-                    <td>Qualification<sup style="color: red;">*</sup>:</td>
-                   <td>
-                        <form action="/action_page.php">
-                            <select name="Qualification">
-                                    <option value="Btech">Btech</option>
-                                    <option value="poly">poly</option>
-                                    <option value="10th">10th</option>
-                                    <option value="higher secondary">higher secondary</option>
-                                  </select>
-                                  <br><br>
-                   </td> 
-</form>
-             </tr>
-            </table>
-            <button type="button" class="btn btn-primary btn-md">Submit</button>    
-                </form>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+               </tr>
+               
+               
+               
+               
+               
+               
+               
+               <tr><td colspan="2"><input type="checkbox">Verified By Me....</td></tr>
+               <tr> <td> <input type="submit" value="submit"></td><td> <input type="reset" value="reset"></td> </tr> 
+             
+              
+               
+               
+                    </table>
+                </center>
+            </fieldset>
+            </form>
+        
     </body>
-
-    </html>
+</html>
