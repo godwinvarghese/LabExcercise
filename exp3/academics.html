@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+*{
+    margin: 0;
+}
+h1{
+    text-align: center;
+    font-family: serif;
+    font-size: 30px;
+    font-style: normal;
+    color: white;
+    background-color: cornflowerblue;
+    line-height: 90px;
+    text-shadow:2px 2px black;
+}
+ul{
+    list-style-type: none;
+    background-color: black;
+    padding: 10px;
+    overflow: hidden;
+}
+li{
+    float: left ;
+}
+li a{
+    color: white;
+    padding: 30px 200px;
+    text-align: center;
+    text-decoration: none;
+    
+}
+li a:hover{
+    color: white;
+    background-color: green;
+}
+#academics{
+        background-image: url('image1.jpg');
+    align-self: center;
+    max-width: 100%;
+    height: 500px;
+    display: block;
+    padding: 1px;
+    margin: 1px;
+}
+        </style>
+    </head>
+    <body>
+                <h1>Karunya Institute Of Technology And Sciences</h1>
+        <ul> 
+            <li>  <a href="index.html"> Home </a>   </li>  
+            <li>  <a href="registration.html"> Admission </a> </li> 
+            <li>  <a href="academics.html"> Academics </a> </li> 
+            <li>  <a href="calender.html"> Calender </a> </li>
+        </ul> 
+                <div id="academics"></div>
+        <form action="success.html">
+            <fieldset>
+                <center>
+            <table>
+               <tr> 
+                   <td> Name <sup style="color: red">*</sup>: </td>
+                    <td> <input type="text" size="30" autofocus=""> </td> 
+               </tr>
+               
+               <tr> 
+                    <td> Email <sup style="color: red">*</sup>: </td>
+                    <td> <input type="email" size="30" placeholder="Enter email"> </td> 
+               </tr>
+               
+               <tr> 
+                    <td> Mobile <sup style="color: red">*</sup>: </td>
+                    <td>
+                        <select>
+                            <optgroup label="Country Code">
+                                    <option>+91</option>
+                                    <option>+92</option>
+                                </select>
+                <input type="text" size="11"> </td> 
+               </tr>
+               <tr>
+                   <td>Address <sup style="color: red">*</sup>:</td>
+                   <td>
+                       <textarea rows="5" size="10"></textarea>
+                   </td>
+               </tr>
+               <tr> 
+                   <td> Applying For<sup style="color: red">*</sup>: </td>
+                    <td>
+                        <input type="radio" name="opt1" checked>UG 
+                     <input type="radio" name="opt1">PG 
+                     <input type="radio" name="opt1">Lateral 
+                     <input type="radio" name="opt1">Diploma 
+                     </td>
+               </tr>
+               
+               <tr> 
+                    <td> 10th SSLC Mark (%) <sup style="color: red">*</sup>: </td>
+                    <td> <input type="text" size="10"> </td> 
+               </tr>
+               
+               <tr> 
+                    <td> State </td>
+                    <td> 
+                        
+                        <select>
+                            <option>Kerala</option>
+                            <option>TamilNadui</option>
+                            <option>Karnataka</option>
+                            <option>Andra Paradesh</option>
+                            <option>Maharashtra</option>
+                        </select>
+                    </td> 
+               </tr>
+               
+                 <tr>
+                   <td>
+                       Upload Profile Pic:
+                   </td>
+                   <td>
+                       <input type="file" value="file">
+                   </td>
+               </tr>
+               
+                <tr>
+                   <td>
+                       Interested programme Choice-1 <sup style="color: red">*</sup> :
+
+                   </td>
+                   <td>
+                       <select>
+                           <option>B.Tech Civil</option>
+                           <option>B.Tech CSE</option>
+                           <option>B.Tech Mechanical</option>
+                           <option>B.Tech Aerospace</option>
+                       </select>
+                   </td>
+               </tr>
+               
+               <tr>
+                   <td>
+                       Interested Programme Choice-2 <sup style="color: red">*</sup>
+                   </td>
+                   <td>
+                       <select>
+                           <option>B.Tech CSE</option>
+                            <option>B.Tech Civil</option>
+                             <option>B.Tech Mechanical</option>
+                              <option>B.Tech Aerospace</option>
+                       </select>
+                   </td>
+               </tr>
+               
+               <tr>
+                   <td>
+                       Contact Preferences <sup style="color: red">*</sup> :
+                   </td>
+                   <td>
+                       <select>
+                           <option>Any Time</option>
+                           <option>8am - 10am</option>
+                           <option>10am - 1pm</option>
+                           <option>1pm - 4pm</option>
+                           <option>4pm - 7pm</option>
+                       </select>
+                   </td>
+                     
+                   
+               </tr>
+               
+               
+               
+               
+               
+               
+               
+               <tr><td colspan="2"><input type="checkbox">Verified By Me....</td></tr>
+               <tr> <td> <input type="submit" value="submit"></td><td> <input type="reset" value="reset"></td> </tr> 
+             
+              
+               
+               
+               
+            </table>
+                </center>
+            </fieldset>
+            </form>
+        
+    </body>
+</html>

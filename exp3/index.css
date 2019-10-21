@@ -1,0 +1,149 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Aug 7, 2019, 2:40:13 PM
+    Author     : urk17cs146
+*/
+*{
+    margin: 0px;    
+}
+.image1{
+    position: absolute;
+    padding: 20px;
+    width: 40px;
+    height: 40px;
+    
+}
+h1{
+    background-image: linear-gradient(green,greenyellow);
+    border-radius: 25px;
+    color: white;
+    text-align: center;
+    padding-bottom: 20px;
+    margin: 0px;
+    padding-left: 0%;
+    padding-top: 20px;
+}
+ul{
+    background-color: yellow;
+    overflow: hidden;
+    list-style-type: none;
+    padding-left: 5px;
+}
+li{
+    float: left;
+    padding: 2px;
+    padding-bottom: 10px;
+
+}
+li a{
+    background-color: rgba(0,0,0,0.8);    
+    color: red;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 140px;
+}
+li a:hover{
+    color: white;
+    background-color: green;
+}
+.back{
+    background-image: url('background.jpg');
+    background-size: 100%;
+    align-self: center;
+    width: 100%;
+    image-resolution: from-image;
+    height: 500px;
+    padding: 1px;
+    margin: 1px; 
+}
+div img{
+    padding-top: 80px;
+    width: 150px;
+    height: 125px;
+}
+div iframe{
+    padding-left: 75%;
+    
+}
+#pic1{
+    position: absolute;
+    padding-top: 1%;
+    padding-left: 5%;
+}
+#green{
+    position: absolute;
+    padding-top: 2%;
+    padding-left: 25%;
+}
+#pic2{
+    position: absolute;
+    padding-top: 4%;
+    padding-left: 8%;
+}
+#blue{
+    position: absolute;
+    padding-top: 5%;
+    padding-left: 28%;
+}
+#red{
+    position: absolute;
+    padding-top: 8%;
+    padding-left: 31%;
+}
+#pic3{
+    position: absolute;
+    padding-left: 5%;
+    padding-top: 9%;
+}
+#yellow{
+    position: absolute;
+    padding-left: 34%;
+    padding-top: 11%;
+}
+#p1{
+    position: absolute;
+    padding-left: 28%;
+    padding-top: 8%;
+}
+#p2{
+    position: absolute;
+    padding-left: 32%;
+    padding-top: 12%;
+}
+#p3{
+    position: absolute;
+    padding-left: 36%;
+    padding-top: 15%;
+}
+#p4{
+    position: absolute;
+    padding-left: 38%;
+    padding-top: 18%;
+}
+.para{
+    padding: 20px;
+    background-color: violet;
+    border-radius: 20px;
+}
+.last{
+    background-color: blueviolet;
+    padding: 20px;
+}
+.last1{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    padding-left: 93%;
+    padding-top: 40px;
+}
+footer{
+    padding: 45px;
+    background-color: green;
+    font-size: 30px;
+    text-align: center;
+}
