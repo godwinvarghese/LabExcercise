@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CoinFlip</title>
+</head>
+<body>
+	<h1>CoinFlip</h1>
+	<img src="tail.jpeg" id="img"><br><br>
+	<input type="submit" value="Flip" onclick="cal()"><br><br>
+        
+        <p>Tail</p>
+        <input type="text" id="tail" value="0" style="width: 15px">
+        <p>Head</p>
+        <input type="text" id="head" value="0" style="width: 15px">
+
+<script>
+	function cal(){
+		var x=(Math.floor(Math.random()*2)+1)
+		var y=document.getElementById("tail").value;
+		var z=document.getElementById("head").value;
+		if(x==1){
+			document.getElementById('img').src='tail.jpeg'
+			document.getElementById('tail').value=++y;
+		}
+		else{
+			document.getElementById('img').src='head.jpeg'
+			document.getElementById('head').value=++z;
+		}
+
+	}
+</script>	
+</body>
+</html>

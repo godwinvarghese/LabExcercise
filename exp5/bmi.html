@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BMI Calculation</title>
+</head>
+<body>
+	<h1>BMI Calculation</h1>
+	Weight (Kg) : <input type="text" name="Weight" id="Weight" autofocus>
+	Height (m) : <input type="text" name="Height" id="Height">
+	<input type="submit" value="calculate" onclick="cal()"><br><br>
+<div id="result" style="font-size: 20px;"></div>
+
+<script>
+	function cal(){
+		var x=document.getElementById('Weight').value;
+		var y=document.getElementById('Height').value;
+		var z=x/(y*y);
+		if(z<18){
+			document.getElementById('result').innerHTML='Underweight :'+z
+		}
+		else if(z>18 && z<25){
+			document.getElementById('result').innerHTML='Normal :'+z
+		}
+		else if(z>25 && z<30){
+			document.getElementById('result').innerHTML='Overweight :'+z
+		}
+		else if(z>30){
+			document.getElementById('result').innerHTML='Obese :'+z
+		}
+	}	
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Currency Converter</title>
+</head>
+<body style="padding: 0">
+	<h1>currency Converting</h1><br><br>
+	<h2>Select the currency to Convert :</h2><br> 
+	From: 
+	<select id="one">
+		<option>INR</option>
+		<option>Dollar</option>
+	</select>
+	To:
+	<select id="two">
+		<option>INR</option>
+		<option>Dollar</option>
+	</select>
+	Amount :<input type="text" name="currency" id="currency">
+			<input type="submit" value="submit" onclick="cal()">
+
+<div id="result" style="font-size: 20px;"></div>
+
+<script>
+	function cal(){
+		var x=document.getElementById('currency').value
+		var a=document.getElementById('one').value;
+		var b=document.getElementById('two').value;
+		var c=x/72;
+		var d=x*72;
+		var e=x*1;
+		if (a=='INR' && b=='Dollar') {
+			document.getElementById('result').innerHTML='Dollar value is :'+c;
+		}
+		else if(a=='Dollar' && b =='INR'){
+			document.getElementById('result').innerHTML='INR value is :'+d;
+		}
+		else{
+			document.getElementById('result').innerHTML='value is :'+e;
+		}
+		
+	}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Birthday Cake</title>
+</head>
+<body>
+
+<h1>Pizza Order Form</h1> 
+<fieldset> 
+	# of 1/2kg Cakes <input type="text" id="small" /><br /> 
+	# of 1kg Cakes <input type="text" id="medium" /><br /> 
+	# of 2kg Cakes <input type="text" id="large" /><br /> 
+	Tip: 
+	<input type="radio" value="10" name="tip" /> 10% 
+	<input type="radio" value="15" name="tip" checked="checked" /> 15%  
+	<input type="radio" value="20" name="tip" /> 20% <br /> 
+	<button id="submit" onclick="cal()">Calculate Order</button> 
+</fieldset> 
+<p>Cost of order: <span id="price"></span> <p>
+
+
+
+<script>
+	function cal(){
+		var x=document.getElementById('small').value;
+		var y=document.getElementById('medium').value;
+		var z=document.getElementById('large').value;
+		var a=document.getElementsByName('tip');
+		var c=null;
+		for (var i=0;a[i];i++){
+			if(a[i].checked){
+				c=a[i].value;
+				break;
+			}
+		}
+		var d=(x)*100;
+		var e=(y)*200;
+		var f=(z)*400;
+		
+		var g=(d*c)/100+(d);
+		var h=(e*c)/100+(e);
+		var k=(f*c)/100+(f);
+		var l=g+h+k;
+
+		document.getElementById('price').innerHTML=l;
+
+	}
+</script>
+
+</body>
+</html>
