@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Colour Change</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Colour Change In 30 Seconds</h1>
+        <button onclick="change()">start</button>
+        
+        
+        <script>
+            function change(){
+                setInterval("change()",3000)
+                var red=Math.floor(Math.random()*255);
+                var blue=Math.floor(Math.random()*255);
+                var green=Math.floor(Math.random()*255);
+                var color="rgb("+red+","+green+","+blue+")";
+                document.body.style.backgroundColor=color;
+                
+            }
+            
+            
+        </script>
+    </body>
+</html>

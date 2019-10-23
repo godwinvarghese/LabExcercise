@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Student Details</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 style="text-align: center">Student Details</h1><br>
+        <p style="font-size: 20px;">Above 2000:</p>
+        <div id="one"></div><br><br>
+        <p style="font-size: 20px;">Below 2000: </p>
+        <div id="two"></div>
+        
+        
+        <script>
+            function student(){
+            var student=[{name:'john',no:'urk17cs100',dob:"20/01/1997"},
+                         {name:'amal',no:'urk17cs101',dob:"20/01/2998"},
+                         {name:'arjun',no:'urk17cs102',dob:"20/01/1999"},
+                         {name:'manu',no:'urk17cs103',dob:"20/01/2000"},
+                         {name:'libin',no:'urk17cs104',dob:"20/01/2001"},
+                         {name:'rince',no:'urk17cs105',dob:"20/01/2002"}];
+             //var stu1=[{name:'arjun',no:'urk17cs102',dob:'20-01-1999'}];
+            var text = "";
+            var text1= "";
+            var i;
+            var date=["01/01/2000","01/02/1999"];
+            var min=date[0];
+            for(i=0;i<student.length;i++){
+                 if(fDate(student[i].dob) > fDate(min)){
+                     text1+=student[i].name+"'s register Number is : "+student[i].no+" and dOB is "+student[i].dob+"<br>";
+                 }
+                 else{
+                     text+=student[i].name+"'s register Number is : "+student[i].no+" and dOB is "+student[i].dob+"<br>";
+                     document.getElementById("two").innerHTML=text;
+                 }
+
+                 document.getElementById("one").innerHTML=text1;
+                 
+             }
+             function fDate(s) {
+                                var d = new Date();
+                                s = s.split('/');
+                                d.setFullYear(s[2]);
+                                d.setMonth(s[1]);
+                                d.setDate(s[0]);
+                                return d;
+                              }
+             
+                
+            }
+            window.onload=student();
+        </script>
+    </body>
+</html>

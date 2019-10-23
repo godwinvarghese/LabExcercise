@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Moving Car</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <img id="car" src="car.jpg"><br>
+            <button onclick="start()">Start</button>
+            <button onclick="stop()">Stop</button>
+        </div>
+        
+        
+        <script>
+            function fun(){
+                img =document.getElementById("car");
+                img.style.position='relative';
+                img.style.left='0px';
+            }
+            function start(){
+                img.style.left=parseInt(img.style.left)+1+'px';
+                move=setTimeout('start()',10);
+            }
+            function stop(){
+                clearTimeout(move);
+                img.style.left='0px';
+            }
+            window.onload=fun();
+        </script>
+        
+    </body>
+</html>
