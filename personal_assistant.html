@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Assistant - Reminders</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --card: #1f2937;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --danger: #fb7185;
+      --success: #34d399;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(130deg, #0f172a, #111827, #1e293b);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+
+    .subtitle {
+      margin: 0 0 20px;
+      color: var(--muted);
+    }
+
+    .panel {
+      background: rgba(17, 24, 39, 0.92);
+      border: 1px solid #374151;
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #4b5563;
+      background: #0b1220;
+      color: var(--text);
+      padding: 10px;
+      font-size: 0.95rem;
+    }
+
+    textarea { min-height: 80px; resize: vertical; }
+
+    button {
+      cursor: pointer;
+      background: var(--accent);
+      color: #04141f;
+      border: none;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+
+    .secondary {
+      background: #374151;
+      color: var(--text);
+      border: 1px solid #4b5563;
+    }
+
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+
+    .task-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .task {
+      background: var(--card);
+      border: 1px solid #334155;
+      border-left: 6px solid var(--accent);
+      border-radius: 12px;
+      padding: 14px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .task h3 { margin: 0; font-size: 1.1rem; }
+    .task p { margin: 0; color: var(--muted); }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    .pill {
+      background: #0b1220;
+      border: 1px solid #475569;
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    .danger { background: var(--danger); color: #2a060e; }
+    .success { background: var(--success); color: #022016; }
+    .empty { color: var(--muted); font-style: italic; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1>Personal Assistant</h1>
+    <p class="subtitle">Track upcoming tasks, meetings, and reminders with local browser alerts.</p>
+
+    <section class="panel">
+      <div class="grid">
+        <div>
+          <label for="title">Title</label>
+          <input id="title" type="text" placeholder="Weekly team sync">
+        </div>
+        <div>
+          <label for="type">Type</label>
+          <select id="type">
+            <option value="Task">Task</option>
+            <option value="Meeting">Meeting</option>
+            <option value="Reminder">Reminder</option>
+          </select>
+        </div>
+        <div>
+          <label for="date">Date</label>
+          <input id="date" type="date">
+        </div>
+        <div>
+          <label for="time">Time</label>
+          <input id="time" type="time">
+        </div>
+      </div>
+
+      <div style="margin-top: 12px;">
+        <label for="note">Notes</label>
+        <textarea id="note" placeholder="Include agenda, links, or checklist..."></textarea>
+      </div>
+
+      <div class="row">
+        <button id="saveBtn">Add Reminder</button>
+        <button id="notifyBtn" class="secondary" type="button">Enable Browser Notifications</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 style="margin-top: 0;">Upcoming Items</h2>
+      <ul id="taskList" class="task-list"></ul>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'personal_assistant_items_v1';
+    const titleInput = document.getElementById('title');
+    const typeInput = document.getElementById('type');
+    const dateInput = document.getElementById('date');
+    const timeInput = document.getElementById('time');
+    const noteInput = document.getElementById('note');
+    const taskList = document.getElementById('taskList');
+    const saveBtn = document.getElementById('saveBtn');
+    const notifyBtn = document.getElementById('notifyBtn');
+
+    let items = loadItems();
+
+    function loadItems() {
+      try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveItems() {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
+
+    function formatDateTime(isoDateTime) {
+      const dt = new Date(isoDateTime);
+      return dt.toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
+    }
+
+    function timeUntil(isoDateTime) {
+      const diff = new Date(isoDateTime).getTime() - Date.now();
+      if (diff <= 0) return 'Due now or overdue';
+      const mins = Math.floor(diff / 60000);
+      const days = Math.floor(mins / (60 * 24));
+      const hours = Math.floor((mins % (60 * 24)) / 60);
+      const remMins = mins % 60;
+      return `${days}d ${hours}h ${remMins}m remaining`;
+    }
+
+    function renderItems() {
+      const upcoming = items
+        .map(i => ({ ...i, ts: new Date(i.datetime).getTime() }))
+        .sort((a, b) => a.ts - b.ts);
+
+      taskList.innerHTML = '';
+      if (!upcoming.length) {
+        taskList.innerHTML = '<li class="empty">No reminders yet. Add your first task or meeting above.</li>';
+        return;
+      }
+
+      for (const item of upcoming) {
+        const li = document.createElement('li');
+        li.className = 'task';
+
+        const overdue = new Date(item.datetime).getTime() <= Date.now();
+        li.style.borderLeftColor = overdue ? 'var(--danger)' : 'var(--accent)';
+
+        li.innerHTML = `
+          <h3>${item.title}</h3>
+          <div class="meta">
+            <span class="pill">${item.type}</span>
+            <span class="pill">${formatDateTime(item.datetime)}</span>
+            <span class="pill ${overdue ? 'danger' : 'success'}">${timeUntil(item.datetime)}</span>
+          </div>
+          <p>${item.note ? item.note : 'No additional notes.'}</p>
+        `;
+
+        const row = document.createElement('div');
+        row.className = 'row';
+
+        const doneBtn = document.createElement('button');
+        doneBtn.textContent = 'Mark Completed';
+        doneBtn.className = 'secondary';
+        doneBtn.onclick = () => {
+          items = items.filter(x => x.id !== item.id);
+          saveItems();
+          renderItems();
+        };
+
+        row.appendChild(doneBtn);
+        li.appendChild(row);
+        taskList.appendChild(li);
+      }
+    }
+
+    function addReminder() {
+      const title = titleInput.value.trim();
+      const type = typeInput.value;
+      const date = dateInput.value;
+      const time = timeInput.value;
+      const note = noteInput.value.trim();
+
+      if (!title || !date || !time) {
+        alert('Please provide title, date, and time.');
+        return;
+      }
+
+      const datetime = `${date}T${time}`;
+      const item = { id: Date.now(), title, type, datetime, note, notified: false };
+
+      items.push(item);
+      saveItems();
+      renderItems();
+
+      titleInput.value = '';
+      noteInput.value = '';
+    }
+
+    function checkNotifications() {
+      if (!('Notification' in window) || Notification.permission !== 'granted') return;
+
+      const now = Date.now();
+      items = items.map(item => {
+        const ts = new Date(item.datetime).getTime();
+        const withinTenMinutes = ts - now <= 10 * 60000 && ts > now;
+
+        if (withinTenMinutes && !item.notified) {
+          new Notification(`${item.type}: ${item.title}`, {
+            body: `Starts at ${formatDateTime(item.datetime)}`
+          });
+          return { ...item, notified: true };
+        }
+
+        return item;
+      });
+
+      saveItems();
+    }
+
+    notifyBtn.addEventListener('click', async () => {
+      if (!('Notification' in window)) {
+        alert('This browser does not support notifications.');
+        return;
+      }
+
+      const permission = await Notification.requestPermission();
+      if (permission === 'granted') {
+        alert('Notifications enabled. You will be alerted 10 minutes before each item.');
+      }
+    });
+
+    saveBtn.addEventListener('click', addReminder);
+
+    renderItems();
+    setInterval(checkNotifications, 30000);
+  </script>
+</body>
+</html>
